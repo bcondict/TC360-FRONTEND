@@ -1,2 +1,2 @@
-import LogoTennis  from './LogoTennis.png';
-export   {LogoTennis};
+import LogoTennis from './LogoTennis.png';
+export { LogoTennis };
