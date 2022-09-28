@@ -13,3 +13,5 @@ export const User = ({ name }) => {
 User.propTypes = {
   name: PropTypes.string,
 };
+
+
