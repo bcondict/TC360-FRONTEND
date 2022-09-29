@@ -17,7 +17,9 @@ export const Register = () => {
       method: 'POST',
       body: JSON.stringify(user),
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch();
     console.log(resp);
   };
 
