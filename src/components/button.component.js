@@ -23,7 +23,7 @@ export const Button = ({
 };
 
 Button.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
   variant: PropTypes.string,
