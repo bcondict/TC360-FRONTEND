@@ -20,6 +20,9 @@ export const Header = () => {
         <NavLink to={'/'}>
           <Button>Home</Button>
         </NavLink>
+        <NavLink to={'/events'}>
+          <Button>events</Button>
+        </NavLink>
       </div>
     </div>
   );

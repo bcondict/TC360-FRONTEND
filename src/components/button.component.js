@@ -9,6 +9,7 @@ export const Button = ({
   className,
   variant = 'contained',
   color = 'success',
+  size,
 }) => {
   return (
     <ButtonMaterial
@@ -16,6 +17,7 @@ export const Button = ({
       onClick={onClick}
       className={className}
       color={color}
+      size={size}
     >
       {children}
     </ButtonMaterial>
@@ -28,4 +30,5 @@ Button.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
   color: PropTypes.string,
+  size: PropTypes.string,
 };

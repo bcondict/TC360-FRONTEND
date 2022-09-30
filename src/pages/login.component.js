@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Input } from '../components';
+import { useAuth } from '../hooks';
 
 export const Login = () => {
+  const { loginUser } = useAuth();
   const [user, setUser] = useState({
     email: '',
   });
@@ -10,8 +12,9 @@ export const Login = () => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
-  const handlerSubmit = () => {
-    console.log(user);
+  const handlerSubmit = async () => {
+    const res = loginUser(user);
+    console.log(res);
   };
 
   return (

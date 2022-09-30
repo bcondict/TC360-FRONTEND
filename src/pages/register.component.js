@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Input, Button } from '../components';
+import { useAuth } from '../hooks';
 
 export const Register = () => {
+  const { createUser } = useAuth();
   const [user, setUser] = useState({
     nickname: '',
     email: '',
@@ -13,14 +15,8 @@ export const Register = () => {
   };
 
   const handlerSubmit = async () => {
-    const resp = await fetch('http://localhost:8080/auth/register', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: { 'Content-type': 'application/json; charset=UTF-8' },
-    })
-      .then((res) => res.json())
-      .catch();
-    console.log(resp);
+    const res = createUser(user);
+    console.log(res);
   };
 
   return (
