@@ -1,10 +1,12 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter, NavLink } from 'react-router-dom';
-import { Header } from '../components/header.component';
+import { Header } from '../components';
 import { Lading } from './landing.component';
 import { Login } from './login.component';
 import { Register } from './register.component';
 import { Events } from './events.component';
+import { Invites } from './invites.component';
+import { ROUTES_CONSTANTS } from './routes';
 
 export const Router = () => {
   return (
@@ -13,10 +15,11 @@ export const Router = () => {
         <Header></Header>
 
         <Routes>
-          <Route path="/" element={<Lading />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/events" element={<Events />} />
+          <Route path={ROUTES_CONSTANTS.LANDING} element={<Lading />} />
+          <Route path={ROUTES_CONSTANTS.LOGIN} element={<Login />} />
+          <Route path={ROUTES_CONSTANTS.REGISTER} element={<Register />} />
+          <Route path={ROUTES_CONSTANTS.EVENTS} element={<Events />} />
+          <Route path={ROUTES_CONSTANTS.INVITES} element={<Invites />} />
         </Routes>
       </BrowserRouter>
     </div>

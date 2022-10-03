@@ -1,5 +1,5 @@
-import React from 'react';
 import { Event } from '../components';
+import React from 'react';
 
 const events = [
   {
@@ -10,9 +10,9 @@ const events = [
     time: '10:00 AM',
     location:
       'USTA Billie Jean King National Tennis Center, Flushing Meadow - Corona Park, Flushing, NY 11368, United States',
-    image: 'image5',
+    image: 'image1',
+    inviteStatus: 'YES',
   },
-
   {
     name: 'Wimbledon',
     description:
@@ -20,7 +20,8 @@ const events = [
     date: 'July 20, 2023',
     time: '10:00 AM',
     location: '	Plough Lane, Wimbledon',
-    image: 'image7',
+    image: 'image6',
+    inviteStatus: 'NO',
   },
   {
     name: 'Roland Garros',
@@ -29,9 +30,9 @@ const events = [
     date: ' May 17, 2023',
     time: '12:00 AM',
     location: '16th arrondissement, Paris,',
-    image: 'image3',
+    image: 'image4',
+    inviteStatus: 'MAYBE',
   },
-
   {
     name: 'Australia Open',
     description:
@@ -41,8 +42,18 @@ const events = [
     location:
       'USTA Billie Jean King National Tennis Center, Flushing Meadow - Corona Park, Flushing, NY 11368, United States',
     image: 'image2',
+    inviteStatus: 'MAYBE',
   },
-
+  {
+    name: 'Canadian Open',
+    description:
+      'The US Open Tennis Championships is a hardcourt tennis tournament held annually in Queens, New York. Since 1987, the US Open has been chronologically the fourth and final Grand Slam tournament of the year. The other three, in chronological order, are the Australian Open, French Open and Wimbledon.',
+    date: ' Feb 5, 2023',
+    time: '10:00 AM',
+    location:
+      'USTA Billie Jean King National Tennis Center, Flushing Meadow - Corona Park, Flushing, NY 11368, United States',
+    image: 'image3',
+  },
   {
     name: 'US Open',
     description:
@@ -55,12 +66,12 @@ const events = [
   },
 ];
 
-export const Events = () => {
+export const Invites = () => {
   return (
     <div className="flex flex-wrap">
       {events.map((event, index) => (
         <div key={index} className=" w-1/3 p-5 flex justify-center">
-          <Event event={event} />
+          <Event event={event} isCardInvite={true} />
         </div>
       ))}
     </div>

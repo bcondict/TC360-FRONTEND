@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './button.component';
 import { NavLink } from 'react-router-dom';
 import { LogoTennis } from '../assets';
+import { ROUTES_CONSTANTS } from '../pages';
 
 export const Header = () => {
   return (
@@ -11,17 +12,20 @@ export const Header = () => {
       </div>
 
       <div className="flex-row space-x-3 bg-white px-6">
-        <NavLink to={'/login'}>
+        <NavLink to={ROUTES_CONSTANTS.LOGIN}>
           <Button variant="outlined">Sign in</Button>
         </NavLink>
-        <NavLink to={'/Register'}>
+        <NavLink to={ROUTES_CONSTANTS.REGISTER}>
           <Button>Register</Button>
         </NavLink>
-        <NavLink to={'/'}>
+        <NavLink to={ROUTES_CONSTANTS.LANDING}>
           <Button>Home</Button>
         </NavLink>
-        <NavLink to={'/events'}>
-          <Button>events</Button>
+        <NavLink to={ROUTES_CONSTANTS.EVENTS}>
+          <Button>My events</Button>
+        </NavLink>
+        <NavLink to={ROUTES_CONSTANTS.INVITES}>
+          <Button>My invites</Button>
         </NavLink>
       </div>
     </div>
