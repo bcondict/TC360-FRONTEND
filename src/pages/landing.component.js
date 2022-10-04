@@ -1,3 +1,4 @@
+import { Email } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import { User } from '../components/user.component';
 import { useMembers } from '../hooks';
@@ -22,8 +23,8 @@ export const Lading = () => {
       </div>
 
       <div className="flex justify-center text-justify flex-wrap">
-        {members.map(({ name }, index) => (
-          <User key={index} name={name}></User>
+        {members.map(({ email, nickname }, index) => (
+          <User key={index} name={nickname} email={email}></User>
         ))}
       </div>
     </div>
