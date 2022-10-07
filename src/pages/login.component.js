@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Input } from '../components';
 import { useAuth } from '../hooks';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES_CONSTANTS } from './routes';
+import { setUserLogin } from '../redux';
 
 export const Login = () => {
   const { loginUser } = useAuth();
+  const [cookies, setCookie] = useCookies();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: '',
   });
@@ -13,8 +19,15 @@ export const Login = () => {
   };
 
   const handlerSubmit = async () => {
-    const res = loginUser(user);
-    console.log(res);
+    try {
+      const res = await loginUser(user);
+      const data = setCookie('keyToken', res);
+      console.log(cookies.keyToken);
+      setUserLogin(data);
+      navigate(ROUTES_CONSTANTS.LANDING);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

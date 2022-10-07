@@ -1,10 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import { Button } from './button.component';
 import { NavLink } from 'react-router-dom';
 import { LogoTennis } from '../assets';
 import { ROUTES_CONSTANTS } from '../pages';
 
 export const Header = () => {
+  const [header, setHeader] = useState();
+
   return (
     <div className="flex items-center bg-white justify-between">
       <div className="flex flex-row justify-start w-36 px-6">

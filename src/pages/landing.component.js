@@ -1,4 +1,3 @@
-import { Email } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import { User } from '../components/user.component';
 import { useMembers } from '../hooks';

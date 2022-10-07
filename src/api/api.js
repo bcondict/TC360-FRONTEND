@@ -12,7 +12,10 @@ export const post = async (url, body, headers) => {
     method: 'POST',
     headers: { ...headers, 'Content-Type': 'application/json; charset=UTF-8' },
   });
-  return await res.json();
+  if (res.ok) {
+    return await res.json();
+  }
+  throw new Error(await res.json().error);
 };
 
 export const put = async (url, body, headers) => {
