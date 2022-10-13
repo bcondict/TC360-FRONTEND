@@ -14,6 +14,9 @@ import { Button } from './button.component';
 import { AccessTime, LocationOn, CalendarMonth } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import { INVITE_STATUS } from '../constants/inviteStatus.constant';
+import { NavLink } from 'react-router-dom';
+import { ROUTES_CONSTANTS } from '../pages';
+
 
 const IMAGE_EVENT = {
   image1: LogoEvents,
@@ -92,9 +95,12 @@ export const Event = ({ event, isCardInvite }) => {
             </Button>
           </>
         ) : (
+          <NavLink to={ROUTES_CONSTANTS.EVENTDETAIL}>
           <Button size="small" variant="text">
             Detail
           </Button>
+
+          </NavLink>
         )}
       </CardActions>
     </Card>

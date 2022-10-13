@@ -5,6 +5,7 @@ import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES_CONSTANTS } from './routes';
 import { setUserLogin } from '../redux';
+import { useDispatch } from 'react-redux'
 
 export const Login = () => {
   const { loginUser } = useAuth();
@@ -17,13 +18,13 @@ export const Login = () => {
   const onChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
-
+  
+  const dispatch = useDispatch()
   const handlerSubmit = async () => {
     try {
       const res = await loginUser(user);
-      const data = setCookie('keyToken', res);
-      console.log(cookies.keyToken);
-      setUserLogin(data);
+      const data = setCookie('keyToken', res.token);
+      dispatch(setUserLogin(res))
       navigate(ROUTES_CONSTANTS.LANDING);
     } catch (e) {
       console.log(e);

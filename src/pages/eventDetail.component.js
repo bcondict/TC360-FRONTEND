@@ -9,7 +9,6 @@ import {
   Image6,
   Image7,
 } from '../assets';
-import { Button } from './button.component';
 import { AccessTime, LocationOn, CalendarMonth } from '@mui/icons-material';
 
 const IMAGE_EVENT = {

@@ -4,4 +4,6 @@ export const ROUTES_CONSTANTS = {
   REGISTER: '/register',
   EVENTS: '/events',
   INVITES: '/invites',
+  CREATE: '/create',
+  EVENTDETAIL: '/events/eventdetail'
 };
