@@ -28,7 +28,7 @@ const IMAGE_EVENT = {
   image7: Image7,
 };
 
-export const Event = ({ event, isCardInvite }) => {
+export const Event = ({ event, isCardInvite, name, description, coordinator, type, date, time, location, guests }) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -41,21 +41,30 @@ export const Event = ({ event, isCardInvite }) => {
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {event.name}
+          {name}
         </Typography>
         <Typography height={170} variant="body2" color="text.secondary">
-          {event.description}
+          {description}
+        </Typography>
+        <Typography height={170} variant="body2" color="text.secondary">
+          {coordinator}
+        </Typography>
+        <Typography height={170} variant="body2" color="text.secondary">
+          {type}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <div>
-            <CalendarMonth /> {event.date}
+            <CalendarMonth /> {date}
           </div>
           <div>
-            <AccessTime /> {event.time}
+            <AccessTime /> {time}
           </div>
           <div className="h-11">
-            <LocationOn /> {event.location}
+            <LocationOn /> {location}
           </div>
+        </Typography>
+        <Typography height={170} variant="body2" color="text.secondary">
+          {guests}
         </Typography>
       </CardContent>
       <CardActions>
@@ -110,4 +119,13 @@ export const Event = ({ event, isCardInvite }) => {
 Event.propTypes = {
   event: PropTypes.object,
   isCardInvite: PropTypes.bool,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  coordinator: PropTypes.string,
+  type: PropTypes.string,
+  time: PropTypes.string,
+  date: PropTypes.string,
+  location: PropTypes.string,
+  guests: PropTypes.string,
 };
+

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Input, Button } from '../components';
 import { useEvent } from '../hooks';
+import { useDispatch } from 'react-redux'
+
 
 export const CreateEvent = () => {
     const { createEvent } = useEvent();
@@ -12,15 +14,23 @@ export const CreateEvent = () => {
         date: '',
         time: '',
         location: '',
+        guests: '',
     });
 
     const onChange = (event) => {
         setTennisEvent({ ...tennisEvent, [event.target.name]: event.target.value });
     };
 
+    const dispatch = useDispatch()
     const handlerSubmit = async () => {
-        const res = createEvent(tennisEvent);
-        console.log(res);
+        try {
+            const res = await createEvent(tennisEvent);
+            dispatch(setTennisEvent(res))
+            console.log(res);
+        }catch (e) {
+            console.log(e);
+        }
+
     };
 
     return (
@@ -34,6 +44,7 @@ export const CreateEvent = () => {
                 <Input label="Date" name="date" onChange={onChange} />
                 <Input label="Time" name="time" onChange={onChange} />
                 <Input label="Location" name="location" onChange={onChange} />
+                <Input label="Guests" name="guests" onChange={onChange} />
                 <Button onClick={handlerSubmit}>CREATE EVENT</Button>
             </div>
         </div>
