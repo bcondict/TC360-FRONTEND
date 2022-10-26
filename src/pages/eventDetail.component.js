@@ -40,15 +40,18 @@ export const EventDetail = () => {
 
 
   return (
-    <div>
+    <div className='flex justify-center items-center flex-col p-12 mx-52 mt-10 bg-white space-y-16 border-4 border-[grey]'>
       <div>
+        <img src={IMAGE_EVENT.image4} alt="imagen" style={{height: '500px'}}></img>
+      </div>
+      <div className='w-9/12 font-mono text-xl font-bold'>
         {event.name}
       </div>
-      <div>
+      <div className='w-full text-lg'>
         {event.description}
       </div>
       <div>
-        <div>
+        <div className='flex space-x-32'>
           <div>
             <CalendarMonth />
             {event.date}
