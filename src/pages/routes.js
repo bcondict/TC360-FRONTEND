@@ -5,5 +5,5 @@ export const ROUTES_CONSTANTS = {
   EVENTS: '/events',
   INVITES: '/invites',
   CREATE: '/create',
-  EVENTDETAIL: '/events/eventdetail'
+  EVENTDETAIL: (id) => `/event/${id}`
 };

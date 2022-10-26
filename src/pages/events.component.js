@@ -16,12 +16,12 @@ export const Events = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap">
-      {events.map(( {name, description, coordinator, type, date, time, location, guests }, index) => (
-        <div key={index} className=" w-1/3 p-5 flex justify-center">
-          <Event name={name} description={description} coordinator={coordinator} type={type} date={date} time={time} location={location} guests={guests} />
-        </div>
-      ))}
+    <div className="flex justify-center items-center flex-col p-12 ">
+      <div className="flex justify-center text-justify flex-wrap space-x-8">
+        {events.map((event, index) => (
+          <Event key={index} event={event} />
+        ))}
+      </div>
     </div>
   );
 };

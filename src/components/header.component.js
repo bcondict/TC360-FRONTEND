@@ -34,7 +34,6 @@ export const Header = () => {
             <NavLink to={ROUTES_CONSTANTS.LOGIN}>
             <Button variant='outlined'>Log out</Button>
             </NavLink>
-
           </React.Fragment>
         ) : (
           <React.Fragment><NavLink to={ROUTES_CONSTANTS.LOGIN}>

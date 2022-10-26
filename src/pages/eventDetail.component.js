@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { AccessTime, LocationOn, CalendarMonth } from '@mui/icons-material';
 
+import { Button } from '../components';
+import { useEvent } from '../hooks'
 import {
   LogoEvents,
   Image2,
@@ -9,7 +13,6 @@ import {
   Image6,
   Image7,
 } from '../assets';
-import { AccessTime, LocationOn, CalendarMonth } from '@mui/icons-material';
 
 const IMAGE_EVENT = {
   image1: LogoEvents,
@@ -21,11 +24,27 @@ const IMAGE_EVENT = {
   image7: Image7,
 };
 
-export const EventDetail = (event) => {
+export const EventDetail = () => {
+  const [event, setEvent] = useState([]);
+  const { getEvent } = useEvent();
+
+  const { eventId } = useParams();
+
+
+  useEffect(()=> {
+    const fn = async()=> {
+      setEvent(await getEvent(eventId));
+    }
+    fn();
+  }, []);
+
+
   return (
     <div>
       <div>
         {event.name}
+      </div>
+      <div>
         {event.description}
       </div>
       <div>
@@ -46,8 +65,7 @@ export const EventDetail = (event) => {
           <img src={IMAGE_EVENT[event.image]} />
         </div>
       </div>
-
-      <div>Invite users</div>
+      <Button>Invite users</Button>
     </div>
   );
 };

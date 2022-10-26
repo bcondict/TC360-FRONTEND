@@ -23,7 +23,7 @@ export const Router = () => {
           <Route path={ROUTES_CONSTANTS.REGISTER} element={<Register />} />
           <Route path={ROUTES_CONSTANTS.EVENTS} element={<Events />} />
           <Route path={ROUTES_CONSTANTS.INVITES} element={<Invites />} />
-          <Route path={ROUTES_CONSTANTS.EVENTDETAIL} element={<EventDetail />} />
+          <Route path={ROUTES_CONSTANTS.EVENTDETAIL(':eventId')} element={<EventDetail />} />
           <Route path={ROUTES_CONSTANTS.CREATE} element={<CreateEvent />} />
 
 
