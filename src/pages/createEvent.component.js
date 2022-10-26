@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input, Button } from '../components';
 import { useEvent } from '../hooks';
-import { useDispatch } from 'react-redux'
+
 
 
 export const CreateEvent = () => {
@@ -21,11 +21,9 @@ export const CreateEvent = () => {
         setTennisEvent({ ...tennisEvent, [event.target.name]: event.target.value });
     };
 
-    const dispatch = useDispatch()
     const handlerSubmit = async () => {
         try {
             const res = await createEvent(tennisEvent);
-            dispatch(setTennisEvent(res))
             console.log(res);
         }catch (e) {
             console.log(e);

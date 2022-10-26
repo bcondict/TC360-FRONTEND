@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Input, Button } from '../components';
 import { useAuth } from '../hooks';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES_CONSTANTS } from './routes';
 
 export const Register = () => {
   const { createUser } = useAuth();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     nickname: '',
     email: '',
@@ -15,7 +18,8 @@ export const Register = () => {
   };
 
   const handlerSubmit = async () => {
-    const res = createUser(user);
+    const res = await createUser(user);
+    navigate(ROUTES_CONSTANTS.LOGIN)
     console.log(res);
   };
 

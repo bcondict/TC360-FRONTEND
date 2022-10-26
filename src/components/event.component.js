@@ -28,13 +28,13 @@ const IMAGE_EVENT = {
   image7: Image7,
 };
 
-export const Event = ({ event, isCardInvite, name, description, coordinator, type, date, time, location, guests }) => {
+export const Event = ({ isCardInvite, name, description, coordinator, type, date, time, location, guests }) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="500"
-        image={IMAGE_EVENT[event.image]}
+        image={IMAGE_EVENT[Image2]}
         alt="Tennis Club"
         className="h-60"
       />
@@ -43,13 +43,13 @@ export const Event = ({ event, isCardInvite, name, description, coordinator, typ
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
-        <Typography height={170} variant="body2" color="text.secondary">
+        <Typography height={50} variant="body2" color="text.secondary">
           {description}
         </Typography>
-        <Typography height={170} variant="body2" color="text.secondary">
+        <Typography height={50} variant="body2" color="text.secondary">
           {coordinator}
         </Typography>
-        <Typography height={170} variant="body2" color="text.secondary">
+        <Typography height={50} variant="body2" color="text.secondary">
           {type}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -63,13 +63,13 @@ export const Event = ({ event, isCardInvite, name, description, coordinator, typ
             <LocationOn /> {location}
           </div>
         </Typography>
-        <Typography height={170} variant="body2" color="text.secondary">
+        <Typography height={50} variant="body2" color="text.secondary">
           {guests}
         </Typography>
       </CardContent>
       <CardActions>
         {isCardInvite ? (
-          <>
+          <React.Fragment>
             <Button
               size="small"
               className="text-green-600"
@@ -102,7 +102,7 @@ export const Event = ({ event, isCardInvite, name, description, coordinator, typ
             >
               Maybe
             </Button>
-          </>
+          </React.Fragment>
         ) : (
           <NavLink to={ROUTES_CONSTANTS.EVENTDETAIL}>
           <Button size="small" variant="text">
@@ -128,4 +128,3 @@ Event.propTypes = {
   location: PropTypes.string,
   guests: PropTypes.string,
 };
-

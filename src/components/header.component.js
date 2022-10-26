@@ -5,13 +5,10 @@ import { LogoTennis } from '../assets';
 import { ROUTES_CONSTANTS } from '../pages';
 import { useSelector } from 'react-redux'
 import { logOut } from '../redux'
-import { useDispatch } from 'react-redux'
 
 
 export const Header = () => {
-  const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.user.token
-
   )
   return (
     <div className="flex items-center bg-white justify-between">
@@ -21,7 +18,7 @@ export const Header = () => {
 
       <div className="flex-row space-x-3 bg-white px-6">
         {token ? (
-          <>
+          <React.Fragment>
             <NavLink to={ROUTES_CONSTANTS.LANDING}>
               <Button>Home</Button>
             </NavLink>
@@ -38,15 +35,15 @@ export const Header = () => {
             <Button variant='outlined'>Log out</Button>
             </NavLink>
 
-          </>
+          </React.Fragment>
         ) : (
-          <><NavLink to={ROUTES_CONSTANTS.LOGIN}>
+          <React.Fragment><NavLink to={ROUTES_CONSTANTS.LOGIN}>
             <Button variant="outlined" onClick={logOut}>Sign in</Button>
           </NavLink>
             <NavLink to={ROUTES_CONSTANTS.REGISTER}>
               <Button>Register</Button>
             </NavLink>
-          </>
+          </React.Fragment>
         )
         }
       </div>
