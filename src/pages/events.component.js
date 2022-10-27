@@ -17,7 +17,7 @@ export const Events = () => {
 
   return (
     <div>
-      <div className="flex justify-between  flex-wrap my-8">
+      <div className="flex justify-between flex-wrap my-8">
         {events.map((event, index) => (
           <Event key={index} event={event} />
         ))}

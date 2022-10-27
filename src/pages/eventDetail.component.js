@@ -38,35 +38,37 @@ export const EventDetail = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center flex-col p-12 mx-40 mt-10 bg-white space-y-16 border-4 border-[grey]">
-      <div>
-        <img
-          src={IMAGE_EVENT.image4}
-          alt="imagen"
-          style={{ height: '500px' }}
-        ></img>
-      </div>
-      <div className="w-full font-mono text-2xl font-bold">{event.name}</div>
-      <div className="w-full text-lg">{event.description}</div>
-      <div>
-        <div className="flex space-x-32">
-          <div>
-            <CalendarMonth />
-            {event.date}
-          </div>
-          <div>
-            <AccessTime /> {event.time}
-          </div>
-
-          <div>
-            <LocationOn /> {event.location}
-          </div>
-        </div>
+    <div className="flex justify-center items-center p-10 ">
+      <div  className="border flex border-gray-400 rounded-lg p-14 bg-white flex-col h-auto justify-around space-y-10">
         <div>
-          <img src={IMAGE_EVENT[event.image]} />
+          <img
+            src={IMAGE_EVENT.image4}
+            alt="imagen"
+            style={{ height: '200px' }}
+          ></img>
         </div>
+        <div className="w-200px font-mono text-2xl">{event.name}</div>
+        <div className="w-200px text-lg">{event.description}</div>
+        <div>
+          <div className="flex space-x-12">
+            <div>
+              <CalendarMonth />
+              {event.date}
+            </div>
+            <div>
+              <AccessTime /> {event.time}
+            </div>
+
+            <div>
+              <LocationOn /> {event.location}
+            </div>
+          </div>
+          <div>
+            <img src={IMAGE_EVENT[event.image]} />
+          </div>
+        </div>
+        <Button>Invite users</Button>
       </div>
-      <Button>Invite users</Button>
     </div>
   );
 };
