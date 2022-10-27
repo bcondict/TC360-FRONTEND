@@ -11,12 +11,16 @@ import {
   Image7,
 } from '../assets';
 import { Button } from './button.component';
-import { AccessTime, LocationOn, CalendarMonth, Diversity2Sharp } from '@mui/icons-material';
+import {
+  AccessTime,
+  LocationOn,
+  CalendarMonth,
+  Diversity2Sharp,
+} from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import { INVITE_STATUS } from '../constants/inviteStatus.constant';
 import { NavLink } from 'react-router-dom';
 import { ROUTES_CONSTANTS } from '../pages';
-
 
 const IMAGE_EVENT = {
   image1: LogoEvents,
@@ -30,15 +34,15 @@ const IMAGE_EVENT = {
 
 export const Event = ({ isCardInvite, event }) => {
   return (
-    <div className='  py-2 w-4/12  p-5 '>
-    <Card sx={{ width: '100%', gap: 20  }}>
-      <CardMedia
-        component="img"
-        height="200"
-        image={IMAGE_EVENT.image2}
-        alt="Tennis Club"
-        className="h-40"
-      />
+    <div className="  py-2 w-4/12  p-5 ">
+      <Card sx={{ width: '80%', gap: 20 }}>
+        <CardMedia
+          component="img"
+          height="200"
+          image={IMAGE_EVENT.image2}
+          alt="Tennis Club"
+          className="h-40"
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {event.name}
@@ -46,30 +50,24 @@ export const Event = ({ isCardInvite, event }) => {
           <Typography height={30} variant="body2" color="text.secondary">
             {event.type}
           </Typography>
-          <div className="flex flex-wrap  " >
-            <div className='flex-1 flex flex-col'>
+          <div className="flex flex-wrap  ">
+            <div className="flex-1 flex flex-col">
               <div>
-                 <CalendarMonth />
+                <CalendarMonth />
               </div>
-              <div>
-                {event.date}
-              </div>
+              <div>{event.date}</div>
             </div>
-            <div className='flex-1 flex flex-col'>
+            <div className="flex-1 flex flex-col">
               <div>
-              <AccessTime /> 
+                <AccessTime />
               </div>
-              <div>
-                {event.time}
-              </div>
+              <div>{event.time}</div>
             </div>
-            <div className='flex-1 flex flex-col'>
+            <div className="flex-1 flex flex-col">
               <div>
                 <LocationOn />
               </div>
-              <div>
-                {event.location}
-              </div>
+              <div>{event.location}</div>
             </div>
           </div>
         </CardContent>
@@ -80,7 +78,9 @@ export const Event = ({ isCardInvite, event }) => {
                 size="small"
                 className="text-green-600"
                 color={
-                  event.inviteStatus === INVITE_STATUS.yes ? 'success' : 'inherit'
+                  event.inviteStatus === INVITE_STATUS.yes
+                    ? 'success'
+                    : 'inherit'
                 }
                 variant="contained"
               >
@@ -91,7 +91,9 @@ export const Event = ({ isCardInvite, event }) => {
                 size="small"
                 variant="contained"
                 color={
-                  event.inviteStatus === INVITE_STATUS.no ? 'success' : 'inherit'
+                  event.inviteStatus === INVITE_STATUS.no
+                    ? 'success'
+                    : 'inherit'
                 }
               >
                 No
@@ -114,12 +116,11 @@ export const Event = ({ isCardInvite, event }) => {
               <Button size="small" variant="text">
                 Detail
               </Button>
-
             </NavLink>
           )}
         </CardActions>
-    </Card>
-    </div >
+      </Card>
+    </div>
   );
 };
 

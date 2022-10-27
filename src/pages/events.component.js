@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Event } from '../components';
-import { useShowEvent } from '../hooks'
+import { useShowEvent } from '../hooks';
 
 export const Events = () => {
   const [events, setEvents] = useState([]);
@@ -16,8 +16,8 @@ export const Events = () => {
   }, []);
 
   return (
-    <div >
-      <div className="flex justify-between  flex-wrap">
+    <div>
+      <div className="flex justify-between  flex-wrap my-8">
         {events.map((event, index) => (
           <Event key={index} event={event} />
         ))}
@@ -25,4 +25,3 @@ export const Events = () => {
     </div>
   );
 };
-
