@@ -17,7 +17,7 @@ export const Events = () => {
 
   return (
     <div className="flex justify-center items-center flex-col p-12 ">
-      <div className="flex justify-center text-justify flex-wrap space-x-8">
+      <div className="flex justify-center text-justify flex-wrap space-x-8 w-full">
         {events.map((event, index) => (
           <Event key={index} event={event} />
         ))}

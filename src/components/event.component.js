@@ -35,7 +35,7 @@ export const Event = ({ isCardInvite, event }) => {
       <CardMedia
         component="img"
         height="500"
-        image={IMAGE_EVENT[Image2]}
+        image={IMAGE_EVENT.image2}
         alt="Tennis Club"
         className="h-60"
       />
