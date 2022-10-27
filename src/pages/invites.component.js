@@ -68,9 +68,9 @@ const events = [
 
 export const Invites = () => {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex">
       {events.map((event, index) => (
-        <div key={index} className=" w-1/3 p-5 flex justify-center">
+        <div key={index} className=" p-5 flex justify-center">
           <Event event={event} isCardInvite={true} />
         </div>
       ))}

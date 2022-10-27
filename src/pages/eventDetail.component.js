@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AccessTime, LocationOn, CalendarMonth } from '@mui/icons-material';
+import { Card } from '@mui/material';
+import { CardMedia, CardContent, Typography, CardActions } from '@mui/material';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 import { Button } from '../components';
 import { useEvent } from '../hooks';
@@ -39,36 +44,65 @@ export const EventDetail = () => {
 
   return (
     <div className="flex justify-center items-center p-10 ">
-      <div  className="border flex border-gray-400 rounded-lg p-14 bg-white flex-col h-auto justify-around space-y-10">
-        <div>
-          <img
-            src={IMAGE_EVENT.image4}
-            alt="imagen"
-            style={{ height: '200px' }}
-          ></img>
-        </div>
-        <div className="w-200px font-mono text-2xl">{event.name}</div>
-        <div className="w-200px text-lg">{event.description}</div>
-        <div>
-          <div className="flex space-x-12">
-            <div>
-              <CalendarMonth />
-              {event.date}
-            </div>
-            <div>
-              <AccessTime /> {event.time}
-            </div>
+      <Card sx={{ width: '50%', gap: 20 }}>
+        <CardMedia
+          component="img"
+          height="200"
+          image={IMAGE_EVENT.image2}
+          alt="Tennis Club"
+          className="h-40"
+        />
 
-            <div>
-              <LocationOn /> {event.location}
+        <CardContent>
+          <div className=' flex justify-center'>
+            <Typography gutterBottom variant="h5" component="div">
+              {event.name}
+            </Typography>
+          </div>
+          <Typography height={30} variant="body2" color="text.secondary">
+            {event.type}
+          </Typography>
+          <Typography height={30} variant="body2" color="text.secondary">
+            {event.description}
+          </Typography>
+          <div className="flex flex-wrap  ">
+            <div className="flex-1 flex flex-col">
+              <div>
+                <CalendarMonth />
+              </div>
+              <div>{event.date}</div>
+            </div>
+            <div className="flex-1 flex flex-col">
+              <div>
+                <AccessTime />
+              </div>
+              <div>{event.time}</div>
+            </div>
+            <div className="flex-1 flex flex-col">
+              <div>
+                <LocationOn />
+              </div>
+              <div>{event.location}</div>
             </div>
           </div>
-          <div>
-            <img src={IMAGE_EVENT[event.image]} />
+        </CardContent>
+        <CardActions>
+            <NavLink>
+          <div className='flex justify-center'>
+              <Button size="small flex justify-center">
+                INVITE USERS
+              </Button>
           </div>
-        </div>
-        <Button>Invite users</Button>
-      </div>
+            </NavLink>
+
+
+        </CardActions>
+      </Card>
     </div>
   );
+};
+
+Event.propTypes = {
+  event: PropTypes.object,
+  isCardInvite: PropTypes.bool,
 };
