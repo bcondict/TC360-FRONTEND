@@ -16,8 +16,8 @@ export const Events = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center flex-col p-12 ">
-      <div className="flex justify-center text-justify flex-wrap space-x-8">
+    <div className="   ">
+      <div className="flex justify-between  flex-wrap">
         {events.map((event, index) => (
           <Event key={index} event={event} />
         ))}

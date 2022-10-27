@@ -11,7 +11,7 @@ import {
   Image7,
 } from '../assets';
 import { Button } from './button.component';
-import { AccessTime, LocationOn, CalendarMonth } from '@mui/icons-material';
+import { AccessTime, LocationOn, CalendarMonth, Diversity2Sharp } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import { INVITE_STATUS } from '../constants/inviteStatus.constant';
 import { NavLink } from 'react-router-dom';
@@ -30,42 +30,48 @@ const IMAGE_EVENT = {
 
 export const Event = ({ isCardInvite, event }) => {
   return (
-    <div className='flex px-5 py-2 w-3/12 m-7 justify-around '>
-    <Card sx={{ maxWidth: 500 }}>
+    <div className='  py-2 w-4/12  p-5 '>
+    <Card sx={{ width: '100%', gap: 20  }}>
       <CardMedia
         component="img"
-        height="500"
-        image={IMAGE_EVENT[Image2]}
+        height="200"
+        image={IMAGE_EVENT.image2}
         alt="Tennis Club"
-        className="h-60"
+        className="h-40"
       />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {event.name}
           </Typography>
-          <Typography height={70} variant="body2" color="text.secondary">
-            {event.description}
-          </Typography>
-          <Typography height={70} variant="body2" color="text.secondary">
-            {event.coordinator}
-          </Typography>
-          <Typography height={70} variant="body2" color="text.secondary">
+          <Typography height={30} variant="body2" color="text.secondary">
             {event.type}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <div>
-              <CalendarMonth /> {event.date}
+          <div className="flex flex-wrap  " >
+            <div className='flex-1 flex flex-col'>
+              <div>
+                 <CalendarMonth />
+              </div>
+              <div>
+                {event.date}
+              </div>
             </div>
-            <div>
-              <AccessTime /> {event.time}
+            <div className='flex-1 flex flex-col'>
+              <div>
+              <AccessTime /> 
+              </div>
+              <div>
+                {event.time}
+              </div>
             </div>
-            <div className="h-11">
-              <LocationOn /> {event.location}
+            <div className='flex-1 flex flex-col'>
+              <div>
+                <LocationOn />
+              </div>
+              <div>
+                {event.location}
+              </div>
             </div>
-          </Typography>
-          <Typography height={50} variant="body2" color="text.secondary">
-            {event.guests}
-          </Typography>
+          </div>
         </CardContent>
         <CardActions>
           {isCardInvite ? (
