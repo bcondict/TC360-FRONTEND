@@ -68,7 +68,7 @@ const events = [
 
 export const Invites = () => {
   return (
-    <div className="flex">
+    <div className="align-items-center">
       {events.map((event, index) => (
         <div key={index} className=" p-5 flex justify-center">
           <Event event={event} isCardInvite={true} />

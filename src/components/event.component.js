@@ -34,7 +34,7 @@ const IMAGE_EVENT = {
 
 export const Event = ({ isCardInvite, event }) => {
   return (
-    <div className="  py-2 w-4/12  p-5 ">
+    <div className="py-2 w-1/2  p-5 ">
       <Card sx={{ width: '80%', gap: 20 }}>
         <CardMedia
           component="img"
